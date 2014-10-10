@@ -23,7 +23,7 @@ data <- sqldf(
         Date, Time, Global_active_power
      FROM fh
      WHERE Date IN ('1/2/2007', '2/2/2007')",
-     file.format = list(sep = ";", header = TRUE))
+     file.format = list(sep = ";", header = TRUE), drv="SQLite")
 close(fh)
 
 # Convert dates
