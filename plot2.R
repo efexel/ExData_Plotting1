@@ -33,8 +33,8 @@ data$DateTime <- as.POSIXct(
 # Open PNG File
 png(file = output_file, width=width, height=height)
 # Create plot
-plot(data$DateTime, data$Global_active_power, type="l", xlab="",
-    ylab="Global Active Power (kilowatts)", col="black")
+plot(data$DateTime, data$Global_active_power, type="l",
+    xlab="", ylab="Global Active Power (kilowatts)", col="black")
 # Close PNG File
 dev.off()
 
