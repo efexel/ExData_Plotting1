@@ -1,5 +1,5 @@
 ## Coursera - Data Science - Exploratory Data Analysis
-## Course Project 1 - plot3
+## Course Project 1 - plot4
 
 # This script assume that the input file is in the current working directory
 # and writes the resulting plot to the same directory.
@@ -9,7 +9,7 @@
 # File URL:  "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 
 ##### Configuration and setup
-setwd("~/dsedacp1")
+#setwd("~/dsedacp1")
 require('sqldf')
 input_file <- "household_power_consumption.txt"
 output_file <- 'plot4.png'
@@ -19,8 +19,14 @@ height <- 480
 # Read data, filtering to just the 2 dates we want
 fh <- file(input_file)
 attr(fh, "file.format") <- list(sep = ";", header = TRUE)
-data <- sqldf("select * from fh where Date in ('1/2/2007', '2/2/2007')")
+data <- sqldf(
+    "SELECT
+        Date, Time, Global_active_power, Global_reactive_power,
+        Sub_metering_1, Sub_metering_2, Sub_metering_3, Voltage
+     FROM fh
+     WHERE Date IN ('1/2/2007', '2/2/2007')")
 close(fh)
+
 # Convert dates
 data$DateTime <- as.POSIXct(
     paste(as.Date(strptime(data$Date, '%d/%m/%Y')), data$Time))
