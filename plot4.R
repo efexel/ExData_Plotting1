@@ -10,9 +10,9 @@
 
 ##### Configuration and setup
 #setwd("~/dsedacp1")
-require('sqldf')
+require("sqldf")
 input_file <- "household_power_consumption.txt"
-output_file <- 'plot4.png'
+output_file <- "plot4.png"
 width <- 480
 height <- 480
 
@@ -29,7 +29,7 @@ close(fh)
 
 # Convert dates
 data$DateTime <- as.POSIXct(
-    paste(as.Date(strptime(data$Date, '%d/%m/%Y')), data$Time))
+    paste(as.Date(strptime(data$Date, "%d/%m/%Y")), data$Time))
 
 # Open PNG file
 png(file = output_file, width=width, height=height)
