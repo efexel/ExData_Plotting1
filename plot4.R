@@ -24,7 +24,8 @@ data <- sqldf(
         Date, Time, Global_active_power, Global_reactive_power,
         Sub_metering_1, Sub_metering_2, Sub_metering_3, Voltage
      FROM fh
-     WHERE Date IN ('1/2/2007', '2/2/2007')")
+     WHERE Date IN ('1/2/2007', '2/2/2007')",
+     file.format = list(sep = ";", header = TRUE))
 close(fh)
 
 # Convert dates

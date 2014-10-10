@@ -18,13 +18,13 @@ height <- 480
 
 # Read data, filtering to just the 2 dates we want
 fh <- file(input_file)
-attr(fh, "file.format") <- list(sep = ";", header = TRUE)
 data <- sqldf(
     "SELECT
         Date, Time, Global_active_power,
         Sub_metering_1, Sub_metering_2, Sub_metering_3
      FROM fh
-     WHERE Date IN ('1/2/2007', '2/2/2007')")
+     WHERE Date IN ('1/2/2007', '2/2/2007')",
+     file.format = list(sep = ";", header = TRUE))
 close(fh)
 
 # Convert dates
