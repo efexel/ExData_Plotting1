@@ -25,7 +25,7 @@ data <- sqldf(
         Sub_metering_1, Sub_metering_2, Sub_metering_3, Voltage
      FROM fh
      WHERE Date IN ('1/2/2007', '2/2/2007')",
-     file.format = list(sep = ";", header = TRUE), drv="SQLite")
+     file.format = list(sep = ";", header = TRUE), drv = "SQLite")
 close(fh)
 
 # Convert dates
@@ -49,7 +49,7 @@ plot(data$DateTime, data$Sub_metering_1, type="l",
 lines(data$DateTime, data$Sub_metering_2, type="l", col="red")
 lines(data$DateTime, data$Sub_metering_3, type="l", col="blue")
 legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-    lty=1, lwd=2.5, col=c("black", "red", "blue"))
+    bty="n", lty=1, lwd=2.5, col=c("black", "red", "blue"))
 # 4 - Global_reactive_power
 plot(data$DateTime, data$Global_reactive_power, type="l",
     xlab="datetime", ylab="Global_reactive_power")
